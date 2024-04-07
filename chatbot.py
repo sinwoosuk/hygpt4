@@ -19,7 +19,7 @@ class CustomCSVLoader(CSVLoader):
         super().__init__(file_path, encoding=encoding, **kwargs)
 
 # DirectoryLoader 사용
-loader = DirectoryLoader("/hy", glob="*.csv", loader_cls=CustomCSVLoader)
+loader = DirectoryLoader("hy", glob="*.csv", loader_cls=CustomCSVLoader)
 
 # # CSV파일 불러오기
 # loader = DirectoryLoader("/hy", glob="*.csv", loader_cls=CSVLoader)
