@@ -13,11 +13,22 @@ import streamlit as st
 from langchain_community.document_loaders.csv_loader import CSVLoader
 from langchain.document_loaders import DirectoryLoader
 
+from somewhere import CSVLoader, DirectoryLoader
 
+# CSVLoader 확장
+class CustomCSVLoader(CSVLoader):
+    def __init__(self, file_path, encoding="CP949", **kwargs):
+        super().__init__(file_path, encoding=encoding, **kwargs)
+
+# DirectoryLoader 사용
+loader = DirectoryLoader("/hy", glob="*.csv", loader_cls=CustomCSVLoader)
+
+# # CSV파일 불러오기
+# loader = DirectoryLoader("/hy", glob="*.csv", loader_cls=CSVLoader)
 
 # CSV파일 불러오기
 # loader = DirectoryLoader("./hy", glob="*.csv", loader_cls=CSVLoader)
-loader = CSVLoader(file_path="hy/professor.csv", encoding="CP949")
+# loader = CSVLoader(file_path="hy/professor.csv", encoding="CP949")
 data = loader.load()
 
 # OpenAI Embedding 모델을 이용해서 Chunk를 Embedding 한후 Vector Store에 저장
