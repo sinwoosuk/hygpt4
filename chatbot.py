@@ -56,7 +56,7 @@ rag_chain = (
 
 # print(rag_chain.invoke(''))
 
-st.title("한영대GPT")
+st.title("한영대 GPT")
 content = st.text_input("한영대에 관련된 질문을 입력하세요!")
 if st.button("요청하기"):
     with st.spinner("답변 생성 중..."):
