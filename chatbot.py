@@ -13,8 +13,6 @@ import streamlit as st
 from langchain_community.document_loaders.csv_loader import CSVLoader
 from langchain.document_loaders import DirectoryLoader
 
-from somewhere import CSVLoader, DirectoryLoader
-
 # CSVLoader 확장
 class CustomCSVLoader(CSVLoader):
     def __init__(self, file_path, encoding="CP949", **kwargs):
