@@ -37,7 +37,14 @@ retriever = vectorstore.as_retriever()
 
 # 템플릿 객체 생성
 template = """
+당신은 한영대학교의 정보에 대해서 알려주는 조수입니다.
+다음과 같은 맥락을 사용하여 마지막 질문에 대답하십시오.
+답변은 최대 세 문장으로 하고 가능한 한 간결하게 유지하십시오.
+교수 또는 학교 정보에 대해 물어봤을때 관련 내용에 대하여 답하십시오.
+학교 이외의 내용을 물어봤을 때는 구글에 기록된 내용을 바탕으로 답하십시오.
 
+말끝마다 상황에 적합한 이모지를 사용하십시오.
+{context}
 질문: {question}
 도움이 되는 답변:"""
 rag_prompt_custom = PromptTemplate.from_template(template)
