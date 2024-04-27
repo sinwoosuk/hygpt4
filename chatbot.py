@@ -39,7 +39,6 @@ retriever = vectorstore.as_retriever()
 template = """
 다음과 같은 맥락을 사용하여 마지막 질문에 대답하십시오.
 답변은 최대 세 문장으로 하고 가능한 한 간결하게 유지하십시오.
-모르는 내용에 대해서는 대답하지 마십시오.
 말끝마다 상황에 적합한 이모지를 사용하십시오.
 {context}
 질문: {question}
