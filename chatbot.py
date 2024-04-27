@@ -37,11 +37,7 @@ retriever = vectorstore.as_retriever()
 
 # 템플릿 객체 생성
 template = """
-당신은 한영대학교의 정보에 대해서 알려주는 조수입니다.
 
-
-말끝마다 상황에 적합한 이모지를 사용하십시오.
-{context}
 질문: {question}
 도움이 되는 답변:"""
 rag_prompt_custom = PromptTemplate.from_template(template)
