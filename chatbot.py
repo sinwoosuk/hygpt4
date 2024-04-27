@@ -38,7 +38,6 @@ retriever = vectorstore.as_retriever()
 # 템플릿 객체 생성
 template = """
 다음과 같은 맥락을 사용하여 마지막 질문에 대답하십시오.
-대학교 위치에 대해서는 한영대학교의 정보를 사용하지 마십시오.
 말끝마다 상황에 적합한 이모지를 사용하십시오.
 {context}
 질문: {question}
