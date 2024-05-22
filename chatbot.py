@@ -39,7 +39,7 @@ retriever = vectorstore.as_retriever()
 template = """
 다음과 같은 맥락을 사용하여 마지막 질문에 대답하십시오.
 답변은 최대 세 문장으로 하고 가능한 한 간결하게 유지하십시오.
-답변은 구글 검색 엔진으로 대답하십시오.
+답변은 구글 검색을 기반으로 대답하십시오.
 
 {context}
 질문: {question}
