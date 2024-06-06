@@ -45,7 +45,7 @@ rag_chain = (
 
 # 이미지 파일 경로 설정
 logo_img_path = os.path.join(os.getcwd(), 'logo.png')
-background_img_path = os.path.join(os.getcwd(), 'background.png')
+background_img_path = os.path.join(os.getcwd(), 'logo.png')
 
 # Streamlit 앱의 배경 이미지 설정
 st.markdown(
