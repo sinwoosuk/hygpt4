@@ -51,12 +51,13 @@ def add_bg_from_url():
          f"""
          <style>
          .stApp {{
-             background-image: url("https://i.imgur.com/MVw5Fuw.png");
+             background-image: url("https://i.imgur.com/wCLEj5o.png");
              background-attachment: fixed;
              background-size: cover;
          }}
          .stTitle {{
-             margin-top: 200px;
+             margin-top: 100px;
+             text-align: center;
          }}
          </style>
          """,
