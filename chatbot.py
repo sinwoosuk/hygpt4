@@ -45,22 +45,23 @@ rag_chain = (
 
 # 이미지 파일 경로 설정
 logo_img_path = os.path.join(os.getcwd(), 'logo.png')
-background_img_path = os.path.join(os.getcwd(), 'images.jpg')
 
-# Streamlit 앱의 배경 이미지 설정
-st.markdown(
-    f"""
-    <style>
-    .stApp {{
-        background-image: url('file://{background_img_path}');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }}
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+def add_bg_from_url():
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("/images.jpg");
+             background-attachment: fixed;
+             background-size: cover
+             
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
+
+add_bg_from_url() 
 
 # 로고 이미지 삽입
 img = Image.open(logo_img_path)
