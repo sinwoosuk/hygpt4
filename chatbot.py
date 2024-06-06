@@ -13,7 +13,6 @@ import streamlit as st
 from langchain_community.document_loaders.csv_loader import CSVLoader
 from langchain.document_loaders import DirectoryLoader
 
-from somewhere import CSVLoader, DirectoryLoader
 from PIL import Image
 
 # CSVLoader 확장
