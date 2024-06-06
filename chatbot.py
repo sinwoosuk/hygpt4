@@ -51,10 +51,12 @@ def add_bg_from_url():
          f"""
          <style>
          .stApp {{
-             background-image: url("https://i.imgur.com/MVw5Fuw.png");
+             background-image: url("https://i.imgur.com/7a656hV.png");
              background-attachment: fixed;
-             background-size: cover
-             
+             background-size: cover;
+         }}
+         .stTitle {{
+             margin-top: 50px;
          }}
          </style>
          """,
@@ -66,7 +68,7 @@ add_bg_from_url()
 # 로고 이미지 삽입
 # img = Image.open(logo_img_path)
 # st.image(img)
-st.title("한영대 GPT")
+st.markdown("<h1 class='stTitle'>한영대 GPT</h1>", unsafe_allow_html=True)
 content = st.text_input("한영대에 관련된 질문을 입력하세요!")
 if st.button("요청하기"):
     with st.spinner("답변 생성 중..."):
