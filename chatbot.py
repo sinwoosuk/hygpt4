@@ -56,7 +56,7 @@ def add_bg_from_url():
              background-size: cover;
          }}
          .stTitle {{
-             margin-top: 50px;
+             margin-top: 150px;
          }}
          </style>
          """,
