@@ -52,8 +52,10 @@ st.markdown(
     f"""
     <style>
     .stApp {{
-        background: url({background_img_path});
+        background-image: url('file://{background_img_path}');
         background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
     }}
     </style>
     """,
