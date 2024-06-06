@@ -13,19 +13,21 @@ import streamlit as st
 from langchain_community.document_loaders.csv_loader import CSVLoader
 from langchain.document_loaders import DirectoryLoader
 
+from somewhere import CSVLoader, DirectoryLoader
+from PIL import Image
+
 # CSVLoader 확장
 class CustomCSVLoader(CSVLoader):
     def __init__(self, file_path, encoding="CP949", **kwargs):
         super().__init__(file_path, encoding=encoding, **kwargs)
 
 # DirectoryLoader 사용
-loader = DirectoryLoader("hy", glob="*.csv", loader_cls=CustomCSVLoader)
+loader = DirectoryLoader("/hy", glob="*.csv", loader_cls=CustomCSVLoader)
 
 # # CSV파일 불러오기
 # loader = DirectoryLoader("/hy", glob="*.csv", loader_cls=CSVLoader)
 
-# CSV파일 불러오기
-# loader = DirectoryLoader("./hy", glob="*.csv", loader_cls=CSVLoader)
+
 # loader = CSVLoader(file_path="hy/professor.csv", encoding="CP949")
 data = loader.load()
 
@@ -40,7 +42,6 @@ template = """
 다음과 같은 맥락을 사용하여 마지막 질문에 대답하십시오.
 답변은 최대 세 문장으로 하고 가능한 한 간결하게 유지하십시오.
 답변은 구글 검색을 기반으로 대답하십시오.
-
 {context}
 질문: {question}
 도움이 되는 답변:"""
@@ -49,7 +50,7 @@ rag_prompt_custom = PromptTemplate.from_template(template)
 # GPT-3.5 trurbo를 이용해서 LLM 설정
 from langchain.chat_models import ChatOpenAI
 
-llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
+llm = ChatOpenAI(model_name="gpt-4o", temperature=0)
 
 # RAG chain 설정
 from langchain.schema.runnable import RunnablePassthrough
@@ -60,7 +61,10 @@ rag_chain = (
 
 # print(rag_chain.invoke(''))
 
-st.title("한영대d GPT")
+img = Image.open('/logo.png')
+st.image(img)
+
+st.title("한영대GPT")
 content = st.text_input("한영대에 관련된 질문을 입력하세요!")
 if st.button("요청하기"):
     with st.spinner("답변 생성 중..."):
