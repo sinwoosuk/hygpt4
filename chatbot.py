@@ -36,7 +36,7 @@ template = """
 rag_prompt_custom = PromptTemplate.from_template(template)
 # GPT-3.5 trurbo를 이용해서 LLM 설정
 from langchain.chat_models import ChatOpenAI
-llm = ChatOpenAI(model_name="gpt-4", temperature=0)
+llm = ChatOpenAI(model_name="gpt-4o", temperature=0)
 # RAG chain 설정
 from langchain.schema.runnable import RunnablePassthrough
 rag_chain = (
