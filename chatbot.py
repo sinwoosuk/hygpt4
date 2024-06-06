@@ -1,6 +1,4 @@
-__import__("pysqlite3")
 import sys
-sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
 # from dotenv import load_dotenv
 # load_dotenv()
 from langchain.llms import OpenAI
@@ -45,9 +43,25 @@ rag_chain = (
     {"context": retriever, "question": RunnablePassthrough()} | rag_prompt_custom | llm
 )
 
-# 이미지 파일 경로 수정
-img_path = os.path.join(os.getcwd(), 'logo.png')
-img = Image.open(img_path)
+# 이미지 파일 경로 설정
+logo_img_path = os.path.join(os.getcwd(), 'logo.png')
+background_img_path = os.path.join(os.getcwd(), 'background.png')
+
+# Streamlit 앱의 배경 이미지 설정
+st.markdown(
+    f"""
+    <style>
+    .stApp {{
+        background: url({background_img_path});
+        background-size: cover;
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# 로고 이미지 삽입
+img = Image.open(logo_img_path)
 st.image(img)
 st.title("한영대 GPT")
 content = st.text_input("한영대에 관련된 질문을 입력하세요!")
