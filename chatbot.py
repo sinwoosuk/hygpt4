@@ -1,15 +1,19 @@
 import sys
 # from dotenv import load_dotenv
 # load_dotenv()
-from langchain.llms import OpenAI
-from langchain.prompts import PromptTemplate
-from langchain.vectorstores import Chroma
-from langchain.embeddings import OpenAIEmbeddings
-import streamlit as st
-from langchain_community.document_loaders.csv_loader import CSVLoader
-from langchain.document_loaders import DirectoryLoader
 from PIL import Image
 import os
+from langchain_core.prompts import PromptTemplate
+from langchain_community.document_loaders.csv_loader import CSVLoader
+from langchain_community.document_loaders import DirectoryLoader
+from langchain_community.document_loaders import UnstructuredHTMLLoader
+from langchain.text_splitter import HTMLHeaderTextSplitter
+from langchain_chroma import Chroma
+from langchain_openai import OpenAIEmbeddings
+from langchain_core.runnables import RunnablePassthrough
+from langchain_openai import ChatOpenAI
+from dotenv import load_dotenv
+import streamlit as st
 
 # CSVLoader 확장
 class CustomCSVLoader(CSVLoader):
