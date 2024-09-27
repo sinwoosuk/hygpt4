@@ -1,6 +1,7 @@
 import sys
-# from dotenv import load_dotenv
-# load_dotenv()
+__import__("pysqlite3")
+import sys
+sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
 from PIL import Image
 import os
 from langchain_core.prompts import PromptTemplate
